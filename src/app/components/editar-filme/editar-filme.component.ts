@@ -1,5 +1,5 @@
 // editar-filme.component.ts
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FilmeService } from '../../services/filme.service';
 import { Filme } from '../../models/filmes';
@@ -16,7 +16,8 @@ export class EditarFilmeComponent implements OnInit {
   filmeForm: FormGroup;
   filmeId!: number;
   filme!: Filme;
-  salas: { id: number, capacidade: number, tipo: string }[] = [];
+  sala!: number;
+  salas: { id: number, capacidade: number, tipo: string, ocupada: boolean }[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -42,28 +43,60 @@ export class EditarFilmeComponent implements OnInit {
 
     this.salas = this.cinemaService.getSalas();
 
-  if (filme) {
-    this.filme = filme;
-    this.filmeForm.patchValue(this.filme); // Preenche o formulário com os dados do filme
-  } else {
-    alert('Filme não encontrado!');
-    this.router.navigate(['/gerenciar-filmes']);
-  }
+    if (filme) {
+      this.filme = filme;
+      this.filmeForm.patchValue(this.filme); // Preenche o formulário com os dados do filme
+    } else {
+      alert('Filme não encontrado!');
+      this.router.navigate(['/gerenciar-filmes']);
+    }
   }
 
   onSubmit(): void {
     if (this.filmeForm.valid) {
       const filmeAtualizado: Filme = { ...this.filme, ...this.filmeForm.value };
-      this.filmeService.atualizarFilme(filmeAtualizado);
-      alert('Filme atualizado com sucesso!');
+      // Verifica se a sala escolhida está ocupada
+      if (this.cinemaService.isSalaOcupada(filmeAtualizado.salaId)){
+        // Tenta encontrar uma sala disponível
+        const salaDisponivel = this.salas.find(sala => !sala.ocupada);
+  
+        if (salaDisponivel) {
+          // Se encontrar uma sala disponível, sugere essa sala
+          alert(`A sala ${filmeAtualizado.salaId} está ocupada. O filme será adicionado à sala ${salaDisponivel.id}.`);
+          filmeAtualizado.salaId = salaDisponivel.id;
+          
+        } else {
+          // Se não houver salas disponíveis
+          alert('Não há salas disponíveis no momento.');
+          return;
+        }
+      }
+
+      // Atualiza o filme com os dados processados
+        if (this.filmeService.contadorSala(filmeAtualizado.salaId)){
+          this.filmeService.atualizarFilme(filmeAtualizado);
+        }
+ 
+        alert('Filme atualizado com sucesso!');
+
+        if (this.filmeService.qtsFilmesPorSala(filmeAtualizado.salaId)) {
+          this.cinemaService.ocuparSala(filmeAtualizado.salaId)
+        } 
+           
+        this.cinemaService.desocuparSala(this.filme.salaId); 
+        
+      
+  
+      // Redireciona para a página de gerenciamento de filmes
       this.router.navigate(['/gerenciar-filmes']);
-    }else {
+    } else {
       alert('Preencha o formulário corretamente.');
     }
+
   }
 
   cancelar(): void {
     this.router.navigate(['/gerenciar-filmes']); // Volta para a lista de filmes
   }
- 
+
 }

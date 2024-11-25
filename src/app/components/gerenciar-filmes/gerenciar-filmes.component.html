@@ -4,11 +4,13 @@
     <h3>Lista de Filmes</h3>
     <table>
       <tr  class="bg-dark bg-light">
+        <th>Sala</th>
         <th>Título</th>
         <th>Duração (min)</th>
         <th>Ações</th>
       </tr>
       <tr *ngFor="let filme of filmes">
+        <td>{{filme.salaId}}</td>
         <td>{{ filme.titulo }}</td>
         <td>{{ filme.duracao }}</td>
         <td>

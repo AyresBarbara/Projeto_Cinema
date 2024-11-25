@@ -32,25 +32,6 @@
   margin-bottom: 20px;
 }
 
-.seats {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.seats button {
-  padding: 10px;
-  margin-right: 5px;
-  background-color: #4a90e2;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
 .seats button.ocupado {
   background-color: #dc3545;
   cursor: not-allowed;
@@ -82,7 +63,7 @@
 }
 
 .disponível::before {
-  background-color: #4a90e2;
+  background-color: #888888;
 }
 
 .ocupado::before {
@@ -211,11 +192,11 @@
 }
 
 .assento.selecionado {
-  background-color: blue;
+  background-color:#ffc107;
   color: white;
 }
 
 .assento.ocupado {
-  background-color: red;
+  background-color: #dc3545;
   color: white;
 }

@@ -127,16 +127,47 @@ export class FilmeService {
     }
   }
 
+
   excluirFilme(filmeId: number): void {
     const filmes = this.filmesSubject.getValue();
     const filmesAtualizados = filmes.filter(filme => filme.id !== filmeId);
 
     if (filmes.length !== filmesAtualizados.length) {
+      const filme = this.getFilmeById(filmeId);
+
+      if (filme?.salaId) {
+        this.cinemaService.desocuparSala(filme.salaId);
+      }
+
       this.filmesSubject.next(filmesAtualizados);
       alert(`Filme com ID ${filmeId} excluído com sucesso.`);
+
     } else {
       alert('Filme não encontrado para exclusão.');
     }
   }
+
+  qtsFilmesPorSala(idsala: number): boolean {
+    const sala = this.cinemaService.getSalaById(idsala);
+    if (sala) {
+      if (sala.qtdFilmes == 2) {
+        return true; // Sala está ocupada
+      }
+    }
+    return false; // Sala não está ocupada
+  }
+
+
+   contadorSala(idsala: number): boolean{
+    const sala = this.cinemaService.getSalaById(idsala);
+    if (sala) {
+      if (sala.qtdFilmes < 2) { 
+        sala.qtdFilmes += 1;
+      return true;
+      }
+    }
+       
+    return false;
+    }
 
 }

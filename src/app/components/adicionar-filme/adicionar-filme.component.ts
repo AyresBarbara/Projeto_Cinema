@@ -32,7 +32,7 @@ export class AdicionarFilmeComponent {
     this.salaId = Number(numeroSala);
 
     if (this.titulo && this.salaId && this.posterURL && this.duracao !== null && this.sinopse) { // Verifica se todos os campos estão preenchidos
-     
+
       // Verifica se a sala escolhida está ocupada
       if (this.cinemaService.isSalaOcupada(this.salaId)) {
         // Se a sala está ocupada, tenta encontrar uma sala disponível
@@ -50,16 +50,17 @@ export class AdicionarFilmeComponent {
       }
 
       this.filmeService.adicionarFilmeService(this.titulo,this.salaId, this.duracao, this.posterURL, this.sinopse);// Adiciona o filme
-
-       // Marca a sala como ocupada
-       this.cinemaService.ocuparSala(this.salaId);
-       
+    
+      // Marca a sala como ocupada
+      if (this.filmeService.contadorSala(this.salaId)){
+        this.cinemaService.ocuparSala(this.salaId);
+      }
+      
       alert('Filme adicionado com sucesso!');
       this.router.navigate(['/']);
     } else {
       alert('Por favor, preencha todos os campos.');
     }
   }
-  
   
 }

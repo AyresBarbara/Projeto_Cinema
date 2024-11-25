@@ -30,4 +30,5 @@ export class GerenciarFilmesComponent implements OnInit {
       this.filmeService.excluirFilme(filmeId);// Atualiza o serviço
     }
   }
+
 }

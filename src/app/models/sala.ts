@@ -4,5 +4,6 @@ export interface Sala {
     id: number;          
     capacidade: number;    
     tipo: string;  
-    ocupada: boolean;       
+    ocupada: boolean;
+    qtdFilmes: number;       
 }

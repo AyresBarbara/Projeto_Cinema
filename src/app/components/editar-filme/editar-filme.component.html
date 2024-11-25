@@ -1,7 +1,7 @@
 <div class="form-group editar-filme">
   <h3 class="display-5 text-center text-black">Editar Filme</h3>
   <form [formGroup]="filmeForm" (ngSubmit)="onSubmit()">
-    
+
     <div class="mb-3">
       <label for="titulo">Título:</label>
       <input type="text" class="form-control" id="titulo" formControlName="titulo" required />
@@ -10,23 +10,26 @@
     <div class="mb-3">
       <label for="salaId">Id da sala:</label>
       <select class="form-control" id="salaId" formControlName="salaId" required>
-        <option *ngFor="let sala of salas" [value]="sala.id" >{{ sala.id }}</option>
+        <option *ngFor="let sala of salas" [value]="sala.id">{{ sala.id }} (Tipo: {{ sala.tipo }}, Capacidade: {{
+          sala.capacidade }})</option>
       </select>
     </div>
 
     <div class="mb-3">
       <label for="duracao">Duração (minutos):</label>
-      <input type="number" class="form-control" id="duracao" formControlName="duracao" placeholder="Duração em minutos" required min="1" />
+      <input type="number" class="form-control" id="duracao" formControlName="duracao" placeholder="Duração em minutos"
+        required min="1" />
     </div>
-    
+
     <div class="mb-3">
       <label for="posterURL">URL do Pôster:</label>
       <input type="text" class="form-control" id="posterURL" formControlName="posterURL" required />
     </div>
-    
+
     <div class="mb-3">
       <label for="sinopse">Sinopse:</label>
-      <textarea class="form-control" id="sinopse" formControlName="sinopse" rows="5" required placeholder="Digite a sinopse do filme aqui..."></textarea>
+      <textarea class="form-control" id="sinopse" formControlName="sinopse" rows="5" required
+        placeholder="Digite a sinopse do filme aqui..."></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Salvar Alterações</button>

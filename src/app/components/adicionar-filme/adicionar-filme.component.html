@@ -8,9 +8,12 @@
         </div>
 
         <div class="mb-3">
-            <label>Id da sala:</label>
+            <label for="salaId" class="form-label">Selecione a sala:</label>
             <select class="form-control" id="salaId" #salaId required>
-              <option *ngFor="let sala of salas" [value]="sala.id">{{ sala.id }}</option>
+                <option value="" disabled selected>Escolha uma sala...</option>
+                <option *ngFor="let sala of salas" [value]="sala.id">
+                    {{ sala.id }} (Tipo: {{ sala.tipo }}, Capacidade: {{ sala.capacidade }})
+                </option>
             </select>
         </div>
 
