@@ -22,10 +22,16 @@ export class CinemaService {
   getSalaById(salaId: number): Sala | undefined {
     return this.salas.find(sala => sala.id == salaId);
   }
+  
   // Verificar se uma sala está ocupada
   isSalaOcupada(salaId: number): boolean {
     const sala = this.getSalaById(salaId);
-    return sala ? sala.ocupada : false;
+    if (sala) {
+      if (sala.qtdFilmes == 2) {
+        return true; // Sala está ocupada
+      }
+    }
+    return false; // Sala não está ocupada
   }
 
   // Marcar a sala como ocupada

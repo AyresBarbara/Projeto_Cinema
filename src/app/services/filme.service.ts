@@ -147,17 +147,6 @@ export class FilmeService {
     }
   }
 
-  qtsFilmesPorSala(idsala: number): boolean {
-    const sala = this.cinemaService.getSalaById(idsala);
-    if (sala) {
-      if (sala.qtdFilmes == 2) {
-        return true; // Sala está ocupada
-      }
-    }
-    return false; // Sala não está ocupada
-  }
-
-
    contadorSala(idsala: number): boolean{
     const sala = this.cinemaService.getSalaById(idsala);
     if (sala) {
@@ -166,7 +155,7 @@ export class FilmeService {
       return true;
       }
     }
-       
+ 
     return false;
     }
 

@@ -78,15 +78,12 @@ export class EditarFilmeComponent implements OnInit {
         }
  
         alert('Filme atualizado com sucesso!');
-
-        if (this.filmeService.qtsFilmesPorSala(filmeAtualizado.salaId)) {
+        
+        if (this.cinemaService.isSalaOcupada(filmeAtualizado.salaId)) {
           this.cinemaService.ocuparSala(filmeAtualizado.salaId)
-        } 
-           
+        }  
         this.cinemaService.desocuparSala(this.filme.salaId); 
         
-      
-  
       // Redireciona para a página de gerenciamento de filmes
       this.router.navigate(['/gerenciar-filmes']);
     } else {
