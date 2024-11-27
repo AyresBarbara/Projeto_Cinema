@@ -6,7 +6,7 @@ Este projeto foi desenvolvido pelo Squad 2 -  Uninassau como parte do **Projeto 
 - Bárbara Ayres;
 - Cleverson Fernando;
 - Eduardo Lira;
-- Lucas Campos;
+- Lucas Matos;
 - Marcos Daniel.
 
 ## Funcionalidades
