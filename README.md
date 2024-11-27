@@ -46,6 +46,6 @@ Ele simula um sistema de gerenciamento e reserva de ingressos para um cinema, of
 ## Estrutura do Projeto
 
 - **src/app**: Contém os componentes principais, como:
-- **gerenciar-filmes**: Gerenciamento de filmes.
-- **assentos**: Exibição e seleção de assentos.
+  - **gerenciar-filmes**: Gerenciamento de filmes.
+  - **assentos**: Exibição e seleção de assentos.
 - **services**: Serviços para manipular dados de filmes, sessões e reservas.
