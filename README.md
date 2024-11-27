@@ -1,27 +1,85 @@
-# CinePorto
+# Projeto Cinema 🎬
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
+Este projeto foi desenvolvido como parte do **Projeto de Residência Tecnológica do Porto Digital**, com mentoria da **empresa SERPRO** e seus funcionários. Ele simula um sistema de gerenciamento e reserva de ingressos para um cinema, oferecendo funcionalidades completas para administração e interação com sessões e filmes.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Visualizar filmes em cartaz**: Confira a lista de filmes disponíveis no cinema, com detalhes como título e duração.
+- **Escolher sessão**: Selecione o horário e a sala da sessão para assistir ao filme.
+- **Reservar assento**: Escolha o assento desejado e preencha os dados de reserva (nome e CPF).
+- **Gerenciar filmes**:
+  - **Cadastrar filmes novos**: Adicione novos títulos ao catálogo.
+  - **Editar filmes**: Atualize as informações de filmes em cartaz.
+  - **Excluir filmes**: Remova filmes que não estão mais disponíveis.
 
-## Code scaffolding
+## Tecnologias Utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **TypeScript**: Para a lógica do projeto.
+- **Angular**: Para estruturação e desenvolvimento da aplicação.
+- **HTML e CSS**: Para a interface e estilização.
 
-## Build
+## Como Executar o Projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/projeto-cinema.git
+# Projeto Cinema 🎬
 
-## Running unit tests
+Este projeto foi desenvolvido como parte do **Projeto de Residência Tecnológica do Porto Digital**, com mentoria da **empresa SERPRO** e seus funcionários. Ele simula um sistema de gerenciamento e reserva de ingressos para um cinema, oferecendo funcionalidades completas para administração e interação com sessões e filmes.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Funcionalidades
 
-## Running end-to-end tests
+- **Visualizar filmes em cartaz**: Confira a lista de filmes disponíveis no cinema, com detalhes como título e duração.
+- **Escolher sessão**: Selecione o horário e a sala da sessão para assistir ao filme.
+- **Reservar assento**: Escolha o assento desejado e preencha os dados de reserva (nome e CPF).
+- **Gerenciar filmes**:
+  - **Cadastrar filmes novos**: Adicione novos títulos ao catálogo.
+  - **Editar filmes**: Atualize as informações de filmes em cartaz.
+  - **Excluir filmes**: Remova filmes que não estão mais disponíveis.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Tecnologias Utilizadas
 
-## Further help
+- **TypeScript**: Para a lógica do projeto.
+- **Angular**: Para estruturação e desenvolvimento da aplicação.
+- **HTML e CSS**: Para a interface e estilização.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Como Executar o Projeto
+
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/projeto-cinema.git
+# Projeto Cinema 🎬
+
+Este projeto foi desenvolvido como parte do **Projeto de Residência Tecnológica do Porto Digital**, com mentoria da **empresa SERPRO** e seus funcionários. Ele simula um sistema de gerenciamento e reserva de ingressos para um cinema, oferecendo funcionalidades completas para administração e interação com sessões e filmes.
+
+## Funcionalidades
+
+- **Visualizar filmes em cartaz**: Confira a lista de filmes disponíveis no cinema, com detalhes como título e duração.
+- **Escolher sessão**: Selecione o horário e a sala da sessão para assistir ao filme.
+- **Reservar assento**: Escolha o assento desejado e preencha os dados de reserva (nome e CPF).
+- **Gerenciar filmes**:
+  - **Cadastrar filmes novos**: Adicione novos títulos ao catálogo.
+  - **Editar filmes**: Atualize as informações de filmes em cartaz.
+  - **Excluir filmes**: Remova filmes que não estão mais disponíveis.
+
+## Tecnologias Utilizadas
+
+- **TypeScript**: Para a lógica do projeto.
+- **Angular**: Para estruturação e desenvolvimento da aplicação.
+- **HTML e CSS**: Para a interface e estilização.
+
+## Como Executar o Projeto
+
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/projeto-cinema.git
+2. Acesse o diretório do projeto:
+   ```bash
+   cd projeto-cinema
+3. Instale as dependências:
+   ```bash
+   npm install
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   ng serve
+5. Acesse o projeto no navegador em: http://localhost:4200.
