@@ -25,7 +25,7 @@ export class SessaoComponent implements OnInit {
       if (filme) {
         this.titulo = filme.titulo;
         this.posterUrl = filme.posterURL;
-        this.sinopse=filme.sinopse;
+        this.sinopse = filme.sinopse;
         this.sessoes = Object.keys(this.filmeService['assentosPorFilmeESessao'][filmeId] || {});
       }
     }

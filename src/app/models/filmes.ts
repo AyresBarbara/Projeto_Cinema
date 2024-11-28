@@ -5,4 +5,5 @@ export interface Filme {
     posterURL: string;
     sinopse: string;
     salaId: number;
+    horarioInicial?: string; // novo campo (horário em minutos)
 }

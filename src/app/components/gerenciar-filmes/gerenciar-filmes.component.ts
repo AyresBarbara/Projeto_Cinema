@@ -11,12 +11,11 @@ import { FilmeService } from '../../services/filme.service';
 })
 export class GerenciarFilmesComponent implements OnInit {
   filmes: Filme[] = [];
- 
 
-  constructor(private filmeService: FilmeService, private router: Router) {}
+  constructor(private filmeService: FilmeService, private router: Router) { }
 
   ngOnInit(): void {
-    this.filmeService.filmes$.subscribe(filmes =>{
+    this.filmeService.filmes$.subscribe(filmes => {
       this.filmes = filmes;
     }); // Carrega os filmes ao iniciar
   }

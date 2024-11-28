@@ -1,38 +1,55 @@
 <div class="form-group editar-filme">
   <h3 class="display-5 text-center text-black">Editar Filme</h3>
   <form [formGroup]="filmeForm" (ngSubmit)="onSubmit()">
+ 
+        <!-- Título e Sala -->
+        <div class="row-group">
+          <div class="row-item">
+              <label for="titulo">Título do Filme:</label>
+              <input type="text" class="form-control" id="titulo" formControlName="titulo" #titulo required />
+          </div>
+          <div class="row-item">
+              <label for="salaId" class="form-label">Selecione a sala:</label>
+              <select class="form-control" id="salaId" formControlName="salaId" required>
+                <option *ngFor="let sala of salas" [value]="sala.id">{{ sala.id }} (Tipo: {{ sala.tipo }}, Capacidade: {{
+                  sala.capacidade }})</option>
+              </select>
+          </div>
+      </div>
 
-    <div class="mb-3">
-      <label for="titulo">Título:</label>
-      <input type="text" class="form-control" id="titulo" formControlName="titulo" required />
+      <!-- Duração e Horário Inicial -->
+      <div class="row-group">
+          <div class="row-item">
+              <label for="duracao">Duração (minutos):</label>
+              <input type="text" id="duracao" #duracao formControlName="duracao" required min="1" />
+          </div>
+          <div class="row-item">
+            <label for="horario">Horário Inicial (Obrigatório):</label>
+            <input type="text" class="form-control" #horario id="horario" formControlName="horarioInicial" (input)="mascaraHorario($event)" />
+        </div>
+      </div>
+
+      <!-- URL do Pôster -->
+      <div class="row-group">
+          <div class="row-item">
+              <label for="posterURL">URL do Pôster:</label>
+              <input type="text" class="form-control" id="posterURL" formControlName="posterURL" #posterURL required />
+          </div>
+      </div>
+
+      <!-- Sinopse -->
+      <div class="row-group">
+          <div class="row-item">
+              <label for="sinopse">Sinopse:</label>
+              <textarea class="form-control" id="sinopse" #sinopse rows="5" required
+                  formControlName="sinopse"></textarea>
+          </div>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        <button type="cancelar" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
     </div>
-
-    <div class="mb-3">
-      <label for="salaId">Id da sala:</label>
-      <select class="form-control" id="salaId" formControlName="salaId" required>
-        <option *ngFor="let sala of salas" [value]="sala.id">{{ sala.id }} (Tipo: {{ sala.tipo }}, Capacidade: {{
-          sala.capacidade }})</option>
-      </select>
-    </div>
-
-    <div class="mb-3">
-      <label for="duracao">Duração (minutos):</label>
-      <input type="number" class="form-control" id="duracao" formControlName="duracao" placeholder="Duração em minutos"
-        required min="1" />
-    </div>
-
-    <div class="mb-3">
-      <label for="posterURL">URL do Pôster:</label>
-      <input type="text" class="form-control" id="posterURL" formControlName="posterURL" required />
-    </div>
-
-    <div class="mb-3">
-      <label for="sinopse">Sinopse:</label>
-      <textarea class="form-control" id="sinopse" formControlName="sinopse" rows="5" required
-        placeholder="Digite a sinopse do filme aqui..."></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-    <button type="cancelar" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+    
   </form>
 </div>

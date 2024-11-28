@@ -23,9 +23,9 @@ export class AssentosComponent implements OnInit {
   assentoForm!: FormGroup; //Formulário com nome ecpf, para reservar assento
   showModal: boolean = false; //Controla a exibição do modal do forms
 
-  constructor(private route: ActivatedRoute, private filmeService: FilmeService, 
+  constructor(private route: ActivatedRoute, private filmeService: FilmeService,
     private cinemaService: CinemaService, private fb: FormBuilder) {
-    
+
     //Inicializa o forms
     this.assentoForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3)]], // Validação para o nome
@@ -36,21 +36,20 @@ export class AssentosComponent implements OnInit {
   ngOnInit(): void {
     this.filmeId = Number(this.route.snapshot.paramMap.get('id'));
     this.horario = this.route.snapshot.queryParamMap.get('horario') || ''; // Recupera o horário da sessão
-  
+
     const filme = this.filmeService.getFilmeById(this.filmeId);
     if (filme && filme.salaId !== undefined) {
       this.titulo = filme.titulo;
       this.posterUrl = filme.posterURL; // Armazena o URL do pôster
       this.sala = filme.salaId;
-      
+
       const tipoSala = this.cinemaService.getSalaById(filme.salaId);
-      if(tipoSala){
+      if (tipoSala) {
         this.tipo = tipoSala?.tipo;
       }
       const assentosNaoFormatados = this.filmeService.getAssentos(this.filmeId, this.horario, this.sala);
-      console.log(assentosNaoFormatados)
       const colunas = 10; // Ajuste conforme necessário
-    this.assentos = this.formatarAssentos(assentosNaoFormatados, colunas); // Formata os assentos
+      this.assentos = this.formatarAssentos(assentosNaoFormatados, colunas); // Formata os assentos
     }
   }
   // Adicionado 21.11
@@ -61,15 +60,15 @@ export class AssentosComponent implements OnInit {
     }
     return linhas;
   }
-  
+
   selecionarAssento(assento: Assento): void {
     if (assento.ocupado) {
       alert(`Assento ${assento.numero} já está ocupado na sessão das ${this.horario}.`);
-      return; 
+      return;
     }
-  
+
     assento.selecionado = !assento.selecionado;
-  
+
     if (assento.selecionado) {
       this.selectedAssentos.push(assento);
     } else {
@@ -98,7 +97,7 @@ export class AssentosComponent implements OnInit {
     // Limpa os campos de nome e CPF e fecha o modal
     this.showModal = false;
     this.assentoForm.reset();
-    this.selectedAssentos = []; 
+    this.selectedAssentos = [];
   }
 
   fecharModal(): void {
@@ -107,9 +106,9 @@ export class AssentosComponent implements OnInit {
   }
 
   abrirModal() {
-    
+
     if (this.selectedAssentos.length > 0) {
-      this.showModal = true; 
+      this.showModal = true;
     }
   }
 

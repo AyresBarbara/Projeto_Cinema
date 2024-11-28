@@ -1,39 +1,56 @@
 <div class="form-group adicionar-filme">
     <h3 class="display-5 text-center text-black">Adicionar Novo Filme</h3>
-     <form (ngSubmit)="adicionarFilme(titulo.value, salaId.value, duracao.value, posterURL.value, sinopse.value)">
-        
-        <div class="mb-3">
-            <label>Título:</label>
-            <input type="text" class="form-control" id="titulo" #titulo required />
+    <form
+        (ngSubmit)="adicionarFilme(titulo.value, salaId.value, duracao.value, posterURL.value, sinopse.value, horario.value)">
+
+        <!-- Título e Sala -->
+        <div class="row-group">
+            <div class="row-item">
+                <label for="titulo">Título do Filme:</label>
+                <input type="text" class="form-control" id="titulo" placeholder="Titulo do filme" #titulo required />
+            </div>
+            <div class="row-item">
+                <label for="salaId" class="form-label">Selecione a sala:</label>
+                <select class="form-control" id="salaId" #salaId required>
+                    <option value="" disabled selected>Escolha uma sala...</option>
+                    <option *ngFor="let sala of salas" [value]="sala.id">
+                        {{ sala.id }} (Tipo: {{ sala.tipo }}, Capacidade: {{ sala.capacidade }})
+                    </option>
+                </select>
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="salaId" class="form-label">Selecione a sala:</label>
-            <select class="form-control" id="salaId" #salaId required>
-                <option value="" disabled selected>Escolha uma sala...</option>
-                <option *ngFor="let sala of salas" [value]="sala.id">
-                    {{ sala.id }} (Tipo: {{ sala.tipo }}, Capacidade: {{ sala.capacidade }})
-                </option>
-            </select>
+        <!-- Duração e Horário Inicial -->
+        <div class="row-group">
+            <div class="row-item">
+                <label for="duracao">Duração (minutos):</label>
+                <input type="text" id="duracao" #duracao placeholder="Duração em minutos" required min="1" />
+            </div>
+            <div class="row-item">
+                <label for="horario">Horário Inicial (Opcional):</label>
+                <input type="text" class="form-control" id="horario" placeholder="Horario inicial" #horario   
+                (input)="mascaraHorario($event)" 
+                />
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label>Duração (minutos):</label>
-            <input type="text" id="duracao" #duracao placeholder="Duração em minutos" required min="1" />
-        </div>
-        
-        <div class="mb-3">
-            <label>URL do Pôster:</label>
-            <input type="text" class="form-control" id="posterURL" #posterURL required />
-        </div>
-        
-        <div class="mb-3">
-            <label>Sinopse:</label>
-            <textarea class="form-control" id="sinopse" #sinopse rows="5" required placeholder="Digite a sinopse do filme aqui..."></textarea>
+        <!-- URL do Pôster -->
+        <div class="row-group">
+            <div class="row-item">
+                <label for="posterURL">URL do Pôster:</label>
+                <input type="text" class="form-control" id="posterURL" placeholder="Link do Poster" #posterURL required />
+            </div>
         </div>
 
-
-        
-        <button type="submit">Adicionar Filme</button>
+        <!-- Sinopse -->
+        <div class="row-group">
+            <div class="row-item">
+                <label for="sinopse">Sinopse:</label>
+                <textarea class="form-control" id="sinopse" #sinopse rows="5" required
+                    placeholder="Digite a sinopse do filme aqui..."></textarea>
+            </div>
+        </div>
+        <!-- Botão -->
+        <button type="submit" class="btn-submit">Adicionar Filme</button>
     </form>
 </div>

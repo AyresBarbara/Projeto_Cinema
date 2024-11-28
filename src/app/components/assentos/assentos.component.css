@@ -32,14 +32,6 @@
   margin-bottom: 20px;
 }
 
-.seats button.ocupado {
-  background-color: #dc3545;
-  cursor: not-allowed;
-}
-
-.seats button.selecionado {
-  background-color: #ffc107;
-}
 
 .legenda {
   display: flex;
@@ -148,25 +140,6 @@
   color: #888;
 }
 
-
-@media (max-width: 1200px) {
-  .seats {
-    grid-template-columns: repeat(12, 1fr); /* Ajuste para telas médias */
-  }
-}
-
-@media (max-width: 768px) {
-  .seats {
-    grid-template-columns: repeat(6, 1fr); /* Ajuste para tablets */
-  }
-}
-
-@media (max-width: 480px) {
-  .seats {
-    grid-template-columns: repeat(4, 1fr); /* Ajuste para celulares */
-  }
-}
-
 /* CSS DO TEMPLATE DA MATRIZ */
 .assentos-container {
   display: flex;
@@ -188,7 +161,7 @@
   text-align: center;
   line-height: 40px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 
 .assento.selecionado {
@@ -199,4 +172,52 @@
 .assento.ocupado {
   background-color: #dc3545;
   color: white;
+}
+
+@media (max-width: 768px) {
+  /* Ocultar o resumo do pedido */
+  .resumo-pedido {
+    display: none;
+  }
+
+  /* Expandir a seção dos assentos */
+  .cinema {
+    width: 100%;
+  }
+
+  .assento {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 3px;
+  }
+
+  .legenda {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Ocultar o resumo do pedido */
+  .resumo-pedido {
+    display: none;
+  }
+
+  /* Ajustar os assentos para caberem melhor em telas muito pequenas */
+  .cinema {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .assento {
+    width: 25px;
+    height: 20px;
+    line-height: 10px;
+    margin: 1px;
+    font-size: 10px;
+  }
+
+  .legenda {
+    font-size: 14px;
+  }
 }
