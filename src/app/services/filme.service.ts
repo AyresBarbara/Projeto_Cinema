@@ -10,7 +10,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class FilmeService {
 
   private assentosPorFilmeESessao: { [filmeId: number]: { [horario: string]: Assento[] } } = {};
-  private horariosDeSessao: string[] = [];
   private filmesSubject = new BehaviorSubject<Filme[]>([
     {
       id: 1,
