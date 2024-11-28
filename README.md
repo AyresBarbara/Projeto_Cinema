@@ -25,7 +25,7 @@ Ele simula um sistema de gerenciamento e reserva de ingressos para um cinema, of
 
 - **TypeScript**: Para a lógica do projeto.
 - **Angular**: Para estruturação e desenvolvimento da aplicação.
-- **HTML e CSS**: Para a interface e estilização.
+- **HTML, CSS e Bootstrap**: Para a interface e estilização.
 
 ## Como Executar o Projeto
 
